@@ -1,25 +1,134 @@
-function mirror2DArray(arr, diagonal = 'main') {
-    const mirroredArray = arr.map(row => [...row]); // Clone the array to avoid mutating the original
+function mirror2DArray(arr, mirrorType = "main") {
+  const mirroredArray = arr.map((row) => [...row]); // Clone the array to avoid mutating the original
 
-    if (diagonal === 'main') {
-        // Mirror along the main diagonal
-        for (let i = 0; i < 3; i++) {
-            for (let j = i + 1; j < 3; j++) {
-                // Swap elements across the main diagonal
-                [mirroredArray[i][j], mirroredArray[j][i]] = [mirroredArray[j][i], mirroredArray[i][j]];
-            }
-        }
-    } else if (diagonal === 'anti') {
-        // Mirror along the anti-diagonal
-        for (let i = 0; i < 3; i++) {
-            for (let j = 0; j < 3 - i - 1; j++) {
-                // Swap elements across the anti-diagonal
-                [mirroredArray[i][j], mirroredArray[2 - j][2 - i]] = [mirroredArray[2 - j][2 - i], mirroredArray[i][j]];
-            }
-        }
+  if (mirrorType === "main") {
+    // Mirror along the main mirror
+    for (let i = 0; i < 3; i++) {
+      for (let j = i + 1; j < 3; j++) {
+        [mirroredArray[i][j], mirroredArray[j][i]] = [
+          mirroredArray[j][i],
+          mirroredArray[i][j],
+        ];
+      }
+    }
+  } else if (mirrorType === "anti") {
+    // Mirror along the anti-mirror
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3 - i - 1; j++) {
+        [mirroredArray[i][j], mirroredArray[2 - j][2 - i]] = [
+          mirroredArray[2 - j][2 - i],
+          mirroredArray[i][j],
+        ];
+      }
+    }
+  } else if (mirrorType === "column") {
+    // Mirror along the second column
+    for (let i = 0; i < 3; i++) {
+      [mirroredArray[i][0], mirroredArray[i][2]] = [
+        mirroredArray[i][2],
+        mirroredArray[i][0],
+      ];
+    }
+  } else {
+    throw new Error('Invalid mirror type. Use "main", "anti", or "column".');
+  }
+
+  return mirroredArray;
+}
+
+function key(coords) {
+  return JSON.stringify(coords);
+}
+
+function getCombinationMirrorly(coords, combinationsMap) {
+  let retryCount = 0;
+  let coords1 = coords;
+  let combinations;
+
+  while (retryCount < 4 && !combinations) {
+    combinations = combinationsMap.get(key(coords1));
+
+    if (retryCount % 2 === 0) {
+      coords1 = mirror2DArray(coords1, "main");
     } else {
-        throw new Error('Invalid diagonal type. Use "main" or "anti".');
+      coords1 = mirror2DArray(coords1, "column");
     }
 
-    return mirroredArray;
+    retryCount++;
+  }
+
+  const combinationStr = getCombinationStr(combinations);
+  let resCoords = generateCoords(combinationStr);
+
+  while (retryCount > 1) {
+    if (retryCount % 2 === 0) {
+      resCoords = mirror2DArray(resCoords, "main");
+    } else {
+      resCoords = mirror2DArray(resCoords, "column");
+    }
+    retryCount--;
+  }
+
+  return findIndexOf(resCoords);
+}
+
+function getCombinationStr(combinations) {
+  if (Array.isArray(combinations)) return combinations[0];
+
+  return combinations;
+}
+
+function generateCoords(combinationStr) {
+  const [rowIndex, colIndex] = combinationStr
+    .split(".")
+    .map((number) => number);
+  const threeDimensionalArray = [
+    [" ", " ", " "],
+    [" ", " ", " "],
+    [" ", " ", " "],
+  ];
+  threeDimensionalArray[rowIndex][colIndex] = "o";
+  return threeDimensionalArray;
+}
+
+function findIndexOf(grid, char = "o") {
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      if (grid[i][j] === char) {
+        return `${i}.${j}`;
+      }
+    }
+  }
+  return null; // Return null if 'o' is not found
+}
+
+function checkThreeInARow(arr) {
+  const checkLine = (a, b, c) => a === b && b === c && a !== ' ';
+
+  // Check rows
+  for (let i = 0; i < 3; i++) {
+      if (checkLine(arr[i][0], arr[i][1], arr[i][2])) {
+          return [`${i}.0`, `${i}.1`, `${i}.2`];
+      }
+  }
+
+  // Check columns
+  for (let i = 0; i < 3; i++) {
+      if (checkLine(arr[0][i], arr[1][i], arr[2][i])) {
+          return [`0.${i}`, `1.${i}`, `2.${i}`];
+      }
+  }
+
+  // Check main diagonal
+  if (checkLine(arr[0][0], arr[1][1], arr[2][2])) {
+      return ['0.0', '1.1', '2.2'];
+  }
+
+  // Check anti-diagonal
+  if (checkLine(arr[0][2], arr[1][1], arr[2][0])) {
+      return ['0.2', '1.1', '2.0'];
+  }
+
+  // If no three in a row found, return null
+  return null;
 }
