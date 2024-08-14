@@ -1,3 +1,3 @@
-function getCoordsForSecondMovement(coords) {
+function calculateCordsForSecondMove(coords) {
   return getCombinationMirrorly(coords, secondMoveCombinations);
 }

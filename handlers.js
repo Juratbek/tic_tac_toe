@@ -1,3 +1,13 @@
+let movementNumber = 1;
+let coords = generateEmptyCoords();
+
+const COORDS_CALLBACKS = {
+  2: calculateCordsForSecondMove,
+  4: calculateCordsForFourthMove,
+  6: calculateCordsForSixthMove,
+  8: calculateCordsForEightMove,
+};
+
 function gameBoxClickHandler(event) {
   const { target } = event;
 
@@ -11,17 +21,8 @@ function gameBoxClickHandler(event) {
 
     movementNumber++;
 
-    let cordsForNextMovement;
-
-    if (movementNumber === 2) {
-      cordsForNextMovement = getCoordsForSecondMovement(coords);
-    } else if (movementNumber === 4) {
-      cordsForNextMovement = calculateCordsForFourthMove(coords);
-    } else if (movementNumber === 6) {
-      cordsForNextMovement = calculateCordsForSixthMove(coords);
-    } else if (movementNumber === 8) {
-      cordsForNextMovement = calculateCordsForEightMove(coords);
-    }
+    const getCoordsForNextMovement = COORDS_CALLBACKS[movementNumber];
+    let cordsForNextMovement = getCoordsForNextMovement(coords);
 
     const btn = document.getElementById(cordsForNextMovement);
     btn.innerHTML = "o";
@@ -41,18 +42,25 @@ function gameBoxClickHandler(event) {
         });
 
         if (char === "x") {
-          const firstPlayerScore =
-            document.getElementById("first-player-score");
-          const score = Number(firstPlayerScore.innerText);
-          firstPlayerScore.innerText = score + 1;
+          firstPlayerScore++;
         } else if (char === "o") {
-          const secondPlayerScore = document.getElementById(
-            "second-player-score"
-          );
-          const score = Number(secondPlayerScore.innerText);
-          secondPlayerScore.innerText = score + 1;
+          secondPlayerScore++;
         }
+
+        renderScoresBoxContent();
+        showPlayAgainButton();
       }
     }
   }
+}
+
+function startNewRound() {
+  movementNumber = 1;
+  const emptyCoords = generateEmptyCoords();
+  coords = emptyCoords;
+
+  renderGameBoxContent(emptyCoords);
+
+  currentRound++;
+  renderCurrentRound();
 }

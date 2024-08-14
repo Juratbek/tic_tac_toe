@@ -8,42 +8,10 @@
   justify-content: space-between;
 }
 
-.language-selector-container {
-  position: relative;
-}
-
-.language-selector-popover {
-  position: absolute;
-  bottom: -10px;
-  right: 0;
-  transform: translateY(100%);
-  background-color: #393939;
-  padding: 8px 0;
-  width: 100px;
-  border-radius: 8px;
-}
-
-.language-btn {
-  background-color: gray;
-  padding: 8px 16px;
-  width: 100%;
-  background-color: transparent;
-  border-top: 1px solid gray;
-}
-
-.language-btn:last-child {
-  border-bottom: 1px solid gray;
-}
-
-.select-language-btn {
-  background-color: transparent;
-  padding: 8px 16px;
-}
-
 .page {
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.802);
+  background-color: var(--black-200);
 }
 
 .main {
@@ -62,10 +30,6 @@
   gap: 16px;
 }
 
-.round-info__tie {
-  /* color: rgb(50, 50, 160); */
-}
-
 .game-box-container {
   margin: 0 auto;
   width: 300px;
@@ -79,10 +43,22 @@
 }
 
 .cell {
-  background-color: rgb(36, 36, 36);
+  background-color: var(--black-500);
   width: 100px;
   height: 100px;
   outline: none;
-  border: 1px solid rgba(128, 128, 128, 0.509);
+  border: 1px solid rgba(128, 128, 128, 0.5);
   font-size: 32px;
+}
+
+.play-again-btn {
+  background-color: var(--black-500);
+  padding: 16px 24px;
+  margin-top: 16px;
+  width: 100%;
+  display: none;
+}
+
+.play-again-btn:active {
+  background-color: var(--black-600);
 }

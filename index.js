@@ -1,16 +1,11 @@
-let movementNumber = 1;
-
-const coords = [
-  [" ", " ", " "],
-  [" ", " ", " "],
-  [" ", " ", " "],
-];
-
 window.onload = () => {
   const gameContainer = document.querySelector("#game-container");
-
   gameContainer.addEventListener("click", gameBoxClickHandler);
 
+  const playAgainBtn = document.querySelector('#play-again-btn');
+  playAgainBtn.addEventListener('click', startNewRound)
+
   renderScoresBoxContent();
-  renderGameBoxContent();
+  const emptyCoords = generateEmptyCoords()
+  renderGameBoxContent(emptyCoords);
 };

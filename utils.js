@@ -41,6 +41,7 @@ function key(coords) {
 }
 
 function getCombinationMirrorly(coords, combinationsMap) {
+  console.log("🚀 ~ getCombinationMirrorly ~ coords:", coords);
   let retryCount = 0;
   let coords1 = coords;
   let combinations;
@@ -151,4 +152,12 @@ function checkThreeInARow(arr) {
     coords: [],
     char: "",
   };
+}
+
+function generateEmptyCoords() {
+  return [
+    [" ", " ", " "],
+    [" ", " ", " "],
+    [" ", " ", " "],
+  ];
 }
