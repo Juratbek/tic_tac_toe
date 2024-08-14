@@ -45,7 +45,7 @@ function getCombinationMirrorly(coords, combinationsMap) {
   let coords1 = coords;
   let combinations;
 
-  while (retryCount < 4 && !combinations) {
+  while (retryCount < 12 && !combinations) {
     combinations = combinationsMap.get(key(coords1));
 
     if (retryCount % 2 === 0) {
@@ -103,32 +103,52 @@ function findIndexOf(grid, char = "o") {
 }
 
 function checkThreeInARow(arr) {
-  const checkLine = (a, b, c) => a === b && b === c && a !== ' ';
+  const checkLine = (a, b, c) => a === b && b === c && a !== " ";
 
   // Check rows
   for (let i = 0; i < 3; i++) {
-      if (checkLine(arr[i][0], arr[i][1], arr[i][2])) {
-          return [`${i}.0`, `${i}.1`, `${i}.2`];
-      }
+    if (checkLine(arr[i][0], arr[i][1], arr[i][2])) {
+      return {
+        status: "success",
+        coords: [`${i}.0`, `${i}.1`, `${i}.2`],
+        char: arr[i][0],
+      };
+    }
   }
 
   // Check columns
   for (let i = 0; i < 3; i++) {
-      if (checkLine(arr[0][i], arr[1][i], arr[2][i])) {
-          return [`0.${i}`, `1.${i}`, `2.${i}`];
-      }
+    if (checkLine(arr[0][i], arr[1][i], arr[2][i])) {
+      return {
+        status: "success",
+        coords: [`0.${i}`, `1.${i}`, `2.${i}`],
+        char: arr[0][i],
+      };
+    }
   }
 
   // Check main diagonal
   if (checkLine(arr[0][0], arr[1][1], arr[2][2])) {
-      return ['0.0', '1.1', '2.2'];
+    return {
+      status: "success",
+      coords: ["0.0", "1.1", "2.2"],
+      char: arr[0][0],
+    };
   }
 
   // Check anti-diagonal
   if (checkLine(arr[0][2], arr[1][1], arr[2][0])) {
-      return ['0.2', '1.1', '2.0'];
+    return {
+      status: "success",
+      coords: ["0.2", "1.1", "2.0"],
+      char: arr[0][2],
+    };
   }
 
-  // If no three in a row found, return null
-  return null;
+  // If no three in a row found
+  return {
+    status: "fail",
+    coords: [],
+    char: "",
+  };
 }

@@ -1,3 +1,3 @@
-function getCoordsForSecondMovement() {
-    return '1.1'
+function getCoordsForSecondMovement(coords) {
+  return getCombinationMirrorly(coords, secondMoveCombinations);
 }

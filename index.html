@@ -1,35 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./config.css" />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
     <div class="page">
-        <div class="container" id="game-container">
-            <button id="0.0" class="cell"></button>
-            <button id="0.1" class="cell"></button>
-            <button id="0.2" class="cell"></button>
-            <button id="1.0" class="cell"></button>
-            <button id="1.1" class="cell"></button>
-            <button id="1.2" class="cell"></button>
-            <button id="2.0" class="cell"></button>
-            <button id="2.1" class="cell"></button>
-            <button id="2.2" class="cell"></button>
+      <header class="header">
+        <div class="logo">Logo</div>
+        <!-- <div class="language-selector-container">
+          <button class="select-language-btn">UZ</button>
+          <div class="language-selector-popover">
+            <button class="language-btn language-btn__selected">UZ</button>
+            <button class="language-btn">EN</button>
+            <button class="language-btn">RU</button>
+          </div>
+        </div> -->
+      </header>
+      <main class="main">
+        <div class="scores-box-container" id="scores-box"></div>
+        <div class="round-info-container">
+          <div class="round-info">
+            Round 1:&nbsp;<span class="round-info__tie">TIE</span>
+          </div>
+          <div class="round-info">
+            Round 2:&nbsp;<span class="round-info__success">WIN</span>
+          </div>
+          <div class="round-info">
+            Round 3:&nbsp;<span class="round-info__success">LOOSE</span>
+          </div>
         </div>
+        <div class="game-box-container">
+          <h3 style="text-align: center">Round 1</h3>
+          <div class="game-box-body" id="game-container"></div>
+        </div>
+      </main>
     </div>
 
     <script src="./index.js"></script>
     <script src="./utils.js"></script>
+    <script src="./handlers.js"></script>
+    <script src="./renderer.js"></script>
+
+    <script src="./second-movement.combinations.js"></script>
     <script src="./second-movement.js"></script>
 
     <script src="./fourth-movement.combinations.js"></script>
     <script src="./fourth-movement.js"></script>
-    
+
     <script src="./sixth-movement.combinations.js"></script>
     <script src="./sixth-movement.js"></script>
-    
-</body>
+
+    <script src="./eight-movement.combinations.js"></script>
+    <script src="./eight-movement.js"></script>
+  </body>
 </html>
