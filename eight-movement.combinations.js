@@ -1,3 +1,5 @@
+import { key } from "./utils";
+
 const eightMoveCombinations = new Map();
 
 // o centered
@@ -147,3 +149,5 @@ eightMoveCombinations.set(
   ]),
   "2.1"
 );
+
+export default eightMoveCombinations;

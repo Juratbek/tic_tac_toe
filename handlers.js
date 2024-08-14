@@ -1,3 +1,10 @@
+import { checkThreeInARow, generateEmptyCoords } from "./utils";
+import calculateCordsForSecondMove from './second-movement'
+import calculateCordsForFourthMove from './fourth-movement';
+import calculateCordsForSixthMove from './sixth-movement';
+import calculateCordsForEightMove from './eight-movement';
+import { renderCurrentRound, renderGameBoxContent, renderScoresBoxContent, showPlayAgainButton } from "./renderer";
+
 let movementNumber = 1;
 let coords = generateEmptyCoords();
 
@@ -8,7 +15,7 @@ const COORDS_CALLBACKS = {
   8: calculateCordsForEightMove,
 };
 
-function gameBoxClickHandler(event) {
+export function gameBoxClickHandler(event) {
   const { target } = event;
 
   if (target.classList.contains("cell")) {
@@ -54,7 +61,7 @@ function gameBoxClickHandler(event) {
   }
 }
 
-function startNewRound() {
+export function startNewRound() {
   movementNumber = 1;
   const emptyCoords = generateEmptyCoords();
   coords = emptyCoords;

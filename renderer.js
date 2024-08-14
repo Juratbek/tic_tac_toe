@@ -1,4 +1,4 @@
-function renderGameBoxContent(coords) {
+export function renderGameBoxContent(coords) {
   const fragment = document.createDocumentFragment();
   
   coords.forEach((row, rowIndex) => {
@@ -19,7 +19,7 @@ function renderGameBoxContent(coords) {
 let firstPlayerScore = 0;
 let secondPlayerScore = 0;
 
-function renderScoresBoxContent() {
+export function renderScoresBoxContent() {
   const scoresBox = document.getElementById("scores-box");
   scoresBox.innerHTML = "";
 
@@ -37,19 +37,19 @@ function renderScoresBoxContent() {
   scoresBox.appendChild(secondPlayerScoreElement);
 }
 
-function showPlayAgainButton() {
+export function showPlayAgainButton() {
   const btn = document.getElementById("play-again-btn");
   btn.style.display = "block";
 }
 
-function hidePlayAgainButton() {
+export function hidePlayAgainButton() {
   const btn = document.getElementById("play-again-btn");
   btn.style.display = "none";
 }
 
 let currentRound = 1;
 
-function renderCurrentRound() {
+export function renderCurrentRound() {
   const roundLabel = document.getElementById("current-round");
   roundLabel.innerHTML = "";
   roundLabel.innerText = `Round ${currentRound}`;

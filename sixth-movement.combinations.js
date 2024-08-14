@@ -1,6 +1,7 @@
+import { key } from "./utils";
+
 const sixthMoveCombinations = new Map();
 
-// sixth move:
 
 //             rule 1: ['x', ' ', 'x'], if there are two marks together and the third is empty, mark the third position
 //                     ['x', 'o', ' '],
@@ -323,3 +324,5 @@ sixthMoveCombinations.set(
   ]),
   "0.1"
 );
+
+export default sixthMoveCombinations;

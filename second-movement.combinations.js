@@ -1,4 +1,4 @@
-// second move:
+import { key } from "./utils";
 
 //            rule 1: ['x', ' ', ' '], if user marks any position except the center, mark the center
 //                    [' ', 'o', ' '],
@@ -36,3 +36,5 @@ secondMoveCombinations.set(
   ]),
   "1.1"
 );
+
+export default secondMoveCombinations;

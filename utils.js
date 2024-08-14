@@ -36,12 +36,11 @@ function mirror2DArray(arr, mirrorType = "main") {
   return mirroredArray;
 }
 
-function key(coords) {
+export function key(coords) {
   return JSON.stringify(coords);
 }
 
-function getCombinationMirrorly(coords, combinationsMap) {
-  console.log("🚀 ~ getCombinationMirrorly ~ coords:", coords);
+export function getCombinationMirrorly(coords, combinationsMap) {
   let retryCount = 0;
   let coords1 = coords;
   let combinations;
@@ -103,7 +102,7 @@ function findIndexOf(grid, char = "o") {
   return null; // Return null if 'o' is not found
 }
 
-function checkThreeInARow(arr) {
+export function checkThreeInARow(arr) {
   const checkLine = (a, b, c) => a === b && b === c && a !== " ";
 
   // Check rows
@@ -154,7 +153,7 @@ function checkThreeInARow(arr) {
   };
 }
 
-function generateEmptyCoords() {
+export function generateEmptyCoords() {
   return [
     [" ", " ", " "],
     [" ", " ", " "],
