@@ -29,6 +29,7 @@ function renderScoresBoxContent() {
 
   const divider = document.createElement("span");
   divider.innerHTML = ":";
+  divider.style.margin = '0 6px'
   scoresBox.appendChild(divider);
 
   const secondPlayerScoreElement = document.createElement("span");

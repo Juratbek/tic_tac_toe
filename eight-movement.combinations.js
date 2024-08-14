@@ -56,6 +56,15 @@ eightMoveCombinations.set(
   "2.2"
 );
 
+eightMoveCombinations.set(
+  key([
+    ["x", "x", " "],
+    ["o", "o", " "],
+    ["x", "x", "o"],
+  ]),
+  "1.2"
+);
+
 // x centered
 
 eightMoveCombinations.set(

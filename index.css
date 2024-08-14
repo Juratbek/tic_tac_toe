@@ -24,12 +24,6 @@
   margin-bottom: 50px;
 }
 
-.round-info-container {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-}
-
 .game-box-container {
   margin: 0 auto;
   width: 300px;
