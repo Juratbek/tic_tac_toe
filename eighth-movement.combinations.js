@@ -67,6 +67,69 @@ eightMoveCombinations.set(
   "1.2"
 );
 
+eightMoveCombinations.set(
+  key([
+    [" ", "x", " "],
+    ["o", "o", "x"],
+    ["x", "x", "o"],
+  ]),
+  ["0.0", "0.2"]
+);
+
+eightMoveCombinations.set(
+  key([
+    [" ", "x", " "],
+    ["o", "o", "x"],
+    ["x", "o", "x"],
+  ]),
+  "0.2"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["x", "o", "x"],
+    ["o", "o", " "],
+    ["x", "x", " "],
+  ]),
+  "1.2"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["x", "o", "x"],
+    ["o", "o", " "],
+    [" ", "x", "x"],
+  ]),
+  "1.2"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["o", "x", "x"],
+    ["x", "o", "o"],
+    [" ", "x", " "],
+  ]),
+  "2.2"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["x", "o", "x"],
+    [" ", "o", "x"],
+    ["x", " ", "o"],
+  ]),
+  "2.1"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["o", "x", "x"],
+    [" ", "o", "x"],
+    ["x", "o", " "],
+  ]),
+  "2.2"
+);
+
 // x centered
 
 eightMoveCombinations.set(
@@ -148,6 +211,24 @@ eightMoveCombinations.set(
     ["x", " ", " "],
   ]),
   "2.1"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["o", " ", "o"],
+    ["o", "x", "x"],
+    ["x", "x", " "],
+  ]),
+  "0.1"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["o", "o", " "],
+    ["X", "x", "o"],
+    [" ", "x", "x"],
+  ]),
+  "0.2"
 );
 
 export default eightMoveCombinations;

@@ -1,18 +1,41 @@
-import { checkThreeInARow, generateEmptyCoords } from "./utils";
-import calculateCordsForSecondMove from './second-movement'
-import calculateCordsForFourthMove from './fourth-movement';
-import calculateCordsForSixthMove from './sixth-movement';
-import calculateCordsForEightMove from './eight-movement';
-import { renderCurrentRound, renderGameBoxContent, renderScoresBoxContent, showPlayAgainButton } from "./renderer";
+import {
+  checkThreeInARow,
+  generateEmptyCoords,
+  getCombinationMirrorly,
+} from "./utils";
+import {
+  renderCurrentRound,
+  renderGameBoxContent,
+  renderScoresBoxContent,
+  showPlayAgainButton,
+} from "./renderer";
+import secondMoveCombinations from "./second-movement.combinations";
+import fourthMoveCombinations from "./fourth-movement.combinations";
+import sixthMoveCombinations from "./sixth-movement.combinations";
+import eightMoveCombinations from "./eighth-movement.combinations";
+import firstMoveCombinations from "./first-movement.combinations";
+import thirdMoveCombinations from "./third-movement.combinations";
+import fifthMoveCombinations from "./fifth-movement.combination";
+import seventhMoveCombinations from "./seventh-movement.combinations";
+import ninthMoveCombinations from "./ninth-movement.combinations";
 
 let movementNumber = 1;
+export let currentRound = 1;
 let coords = generateEmptyCoords();
 
-const COORDS_CALLBACKS = {
-  2: calculateCordsForSecondMove,
-  4: calculateCordsForFourthMove,
-  6: calculateCordsForSixthMove,
-  8: calculateCordsForEightMove,
+export let firstPlayerScore = 0;
+export let secondPlayerScore = 0;
+
+const COORDS_COMBINATIONS = {
+  1: firstMoveCombinations,
+  2: secondMoveCombinations,
+  3: thirdMoveCombinations,
+  4: fourthMoveCombinations,
+  5: fifthMoveCombinations,
+  6: sixthMoveCombinations,
+  7: seventhMoveCombinations,
+  8: eightMoveCombinations,
+  9: ninthMoveCombinations,
 };
 
 export function gameBoxClickHandler(event) {
@@ -28,8 +51,8 @@ export function gameBoxClickHandler(event) {
 
     movementNumber++;
 
-    const getCoordsForNextMovement = COORDS_CALLBACKS[movementNumber];
-    let cordsForNextMovement = getCoordsForNextMovement(coords);
+    const combinations = COORDS_COMBINATIONS[movementNumber];
+    let cordsForNextMovement = getCombinationMirrorly(coords, combinations);
 
     const btn = document.getElementById(cordsForNextMovement);
     btn.innerHTML = "o";
@@ -69,5 +92,21 @@ export function startNewRound() {
   renderGameBoxContent(emptyCoords);
 
   currentRound++;
+
+  if (currentRound % 2 === 0) {
+    const cordsForFirstMovement = getCombinationMirrorly(
+      coords,
+      firstMoveCombinations
+    );
+
+    const btn = document.getElementById(cordsForFirstMovement);
+    btn.innerHTML = "o";
+    btn.disabled = true;
+
+    const [rowIndex, colIndex] = btn.id.split(".");
+    coords[rowIndex][colIndex] = "o";
+    movementNumber++;
+  }
+
   renderCurrentRound();
 }

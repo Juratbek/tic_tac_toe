@@ -2,7 +2,6 @@ import { key } from "./utils";
 
 const sixthMoveCombinations = new Map();
 
-
 //             rule 1: ['x', ' ', 'x'], if there are two marks together and the third is empty, mark the third position
 //                     ['x', 'o', ' '],
 //                     ['o', ' ', ' ']

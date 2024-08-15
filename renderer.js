@@ -1,6 +1,8 @@
+import { currentRound, firstPlayerScore, secondPlayerScore } from "./handlers";
+
 export function renderGameBoxContent(coords) {
   const fragment = document.createDocumentFragment();
-  
+
   coords.forEach((row, rowIndex) => {
     row.forEach((cell, cellIndex) => {
       const btn = document.createElement("button");
@@ -16,9 +18,6 @@ export function renderGameBoxContent(coords) {
   gameContainer.appendChild(fragment);
 }
 
-let firstPlayerScore = 0;
-let secondPlayerScore = 0;
-
 export function renderScoresBoxContent() {
   const scoresBox = document.getElementById("scores-box");
   scoresBox.innerHTML = "";
@@ -29,7 +28,7 @@ export function renderScoresBoxContent() {
 
   const divider = document.createElement("span");
   divider.innerHTML = ":";
-  divider.style.margin = '0 6px'
+  divider.style.margin = "0 6px";
   scoresBox.appendChild(divider);
 
   const secondPlayerScoreElement = document.createElement("span");
@@ -46,8 +45,6 @@ export function hidePlayAgainButton() {
   const btn = document.getElementById("play-again-btn");
   btn.style.display = "none";
 }
-
-let currentRound = 1;
 
 export function renderCurrentRound() {
   const roundLabel = document.getElementById("current-round");
