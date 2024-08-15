@@ -4,6 +4,7 @@ import {
   getCombinationMirrorly,
 } from "./utils";
 import {
+  hidePlayAgainButton,
   renderCurrentRound,
   renderGameBoxContent,
   renderScoresBoxContent,
@@ -109,4 +110,5 @@ export function startNewRound() {
   }
 
   renderCurrentRound();
+  hidePlayAgainButton();
 }
