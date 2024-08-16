@@ -52,6 +52,8 @@ export function gameBoxClickHandler(event) {
 
     movementNumber++;
 
+    if (movementNumber > 9) showPlayAgainButton();
+
     const combinations = COORDS_COMBINATIONS[movementNumber];
     let cordsForNextMovement = getCombinationMirrorly(coords, combinations);
 
