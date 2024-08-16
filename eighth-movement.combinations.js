@@ -152,6 +152,33 @@ eightMoveCombinations.set(
 
 eightMoveCombinations.set(
   key([
+    ["o", "x", " "],
+    ["x", "x", "o"],
+    [" ", "o", "x"],
+  ]),
+  ["0.2", "2.0"]
+);
+
+eightMoveCombinations.set(
+  key([
+    ["o", " ", " "],
+    ["x", "x", "o"],
+    ["x", "o", "x"],
+  ]),
+  ["0.2"]
+);
+
+eightMoveCombinations.set(
+  key([
+    ["o", " ", "x"],
+    ["x", "x", "o"],
+    [" ", "o", "x"],
+  ]),
+  "2.0"
+);
+
+eightMoveCombinations.set(
+  key([
     ["o", "x", "x"],
     [" ", "x", "x"],
     ["o", "o", " "],

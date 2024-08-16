@@ -324,4 +324,13 @@ sixthMoveCombinations.set(
   "0.1"
 );
 
+sixthMoveCombinations.set(
+  key([
+    ["o", " ", " "],
+    ["x", "x", "o"],
+    [" ", " ", "x"],
+  ]),
+  "2.1"
+);
+
 export default sixthMoveCombinations;
