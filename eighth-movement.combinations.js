@@ -15,6 +15,15 @@ eightMoveCombinations.set(
 
 eightMoveCombinations.set(
   key([
+    ["o", "x", "x"],
+    ["x", "o", " "],
+    ["x", "o", " "],
+  ]),
+  "2.2"
+);
+
+eightMoveCombinations.set(
+  key([
     ["x", "x", "o"],
     ["o", "o", "x"],
     ["x", " ", " "],
@@ -202,6 +211,15 @@ eightMoveCombinations.set(
     ["x", "o", " "],
   ]),
   "1.0"
+);
+
+eightMoveCombinations.set(
+  key([
+    ["o", "x", "o"],
+    [" ", "x", " "],
+    ["x", "o", "x"],
+  ]),
+  ["1.0", "1.2"]
 );
 
 eightMoveCombinations.set(

@@ -168,6 +168,15 @@ seventhMoveCombinations.set(
   "2.2"
 );
 
+seventhMoveCombinations.set(
+  key([
+    ["x", "x", "o"],
+    ["o", "x", " "],
+    [" ", " ", "o"],
+  ]),
+  "1.2"
+);
+
 // empty centered
 
 seventhMoveCombinations.set(
