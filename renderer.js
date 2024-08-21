@@ -1,21 +1,41 @@
 import { currentRound, firstPlayerScore, secondPlayerScore } from "./handlers";
 
 export function renderGameBoxContent(coords) {
-  const fragment = document.createDocumentFragment();
+  const gameContainer = document.getElementById("game-container");
+  gameContainer.innerHTML = "";
 
+  // rendering buttons
+  const buttonsFragment = document.createDocumentFragment();
   coords.forEach((row, rowIndex) => {
     row.forEach((cell, cellIndex) => {
       const btn = document.createElement("button");
       btn.id = `${rowIndex}.${cellIndex}`;
       btn.className = "cell";
       btn.innerHTML = cell;
-      fragment.appendChild(btn);
+      buttonsFragment.appendChild(btn);
     });
   });
+  gameContainer.appendChild(buttonsFragment);
 
-  const gameContainer = document.getElementById("game-container");
-  gameContainer.innerHTML = "";
-  gameContainer.appendChild(fragment);
+  // rendering lines
+  const linesFragment = document.createDocumentFragment();
+  Array(4)
+    .fill("")
+    .forEach((_, index) => {
+      const line = document.createElement("div");
+      line.classList.add("line");
+
+      if (index % 2 === 0) {
+        line.classList.add("vertical");
+        line.style.left = `${33 * (index / 2 + 1)}%`;
+      } else {
+        line.classList.add("horizontal");
+        line.style.top = `${33 * Math.ceil(index / 2)}%`;
+      }
+
+      linesFragment.appendChild(line);
+    });
+  gameContainer.appendChild(linesFragment);
 }
 
 export function renderScoresBoxContent() {

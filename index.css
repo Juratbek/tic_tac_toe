@@ -27,13 +27,13 @@
 .game-box-container {
   margin: 0 auto;
   width: 300px;
-  height: 300px;
 }
 
 .game-box-body {
   border-radius: 5px;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .cell {
@@ -41,7 +41,6 @@
   width: 100px;
   height: 100px;
   outline: none;
-  border: 1px solid rgba(128, 128, 128, 0.5);
   font-size: 32px;
 }
 
@@ -51,8 +50,44 @@
   margin-top: 16px;
   width: 100%;
   display: none;
+  font-size: 1.1rem;
 }
 
 .play-again-btn:active {
   background-color: var(--black-600);
+}
+
+.line {
+  position: absolute;
+  background-color: #696969;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+}
+
+.line.vertical {
+  height: 0;
+  top: 50%;
+  width: 2px;
+  animation-name: full-vertical-line;
+}
+
+.line.horizontal {
+  left: 50%;
+  height: 2px;
+  width: 0;
+  animation-name: full-horizontal-line;
+}
+
+@keyframes full-vertical-line {
+  100% {
+    top: 0;
+    height: 100%;
+  }
+}
+
+@keyframes full-horizontal-line {
+  100% {
+    left: 0;
+    width: 100%;
+  }
 }
