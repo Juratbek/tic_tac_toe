@@ -71,3 +71,15 @@ export function renderCurrentRound() {
   roundLabel.innerHTML = "";
   roundLabel.innerText = `Round ${currentRound}`;
 }
+
+export function renderX(element) {
+  const firstLine = document.createElement('div');
+  firstLine.classList.add('x-line');
+  firstLine.classList.add('diagonal')
+  element.appendChild(firstLine);
+
+  const secondLine = document.createElement('div');
+  secondLine.classList.add('x-diagonal')
+  secondLine.classList.add('x-line')
+  element.appendChild(secondLine);
+}

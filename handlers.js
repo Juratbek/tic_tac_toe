@@ -8,6 +8,7 @@ import {
   renderCurrentRound,
   renderGameBoxContent,
   renderScoresBoxContent,
+  renderX,
   showPlayAgainButton,
 } from "./renderer";
 import secondMoveCombinations from "./second-movement.combinations";
@@ -44,7 +45,8 @@ export function gameBoxClickHandler(event) {
 
   if (target.classList.contains("cell")) {
     const clickedButton = target;
-    clickedButton.innerHTML = "x";
+
+    renderX(clickedButton)
     clickedButton.disabled = true;
 
     const [row, col] = clickedButton.id.split(".");
