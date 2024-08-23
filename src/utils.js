@@ -11,16 +11,6 @@ function mirror2DArray(arr, mirrorType = "main") {
         ];
       }
     }
-  } else if (mirrorType === "anti") {
-    // Mirror along the anti-mirror
-    for (let i = 0; i < 3; i++) {
-      for (let j = 0; j < 3 - i - 1; j++) {
-        [mirroredArray[i][j], mirroredArray[2 - j][2 - i]] = [
-          mirroredArray[2 - j][2 - i],
-          mirroredArray[i][j],
-        ];
-      }
-    }
   } else if (mirrorType === "column") {
     // Mirror along the second column
     for (let i = 0; i < 3; i++) {
@@ -72,8 +62,15 @@ export function getCombinationMirrorly(coords, combinationsMap) {
   return findIndexOf(resCoords);
 }
 
+function getRandomElement(arr) {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
 function getCombinationStr(combinations) {
-  if (Array.isArray(combinations)) return combinations[0];
+  if (Array.isArray(combinations)) {
+    return getRandomElement(combinations);
+  }
 
   return combinations;
 }

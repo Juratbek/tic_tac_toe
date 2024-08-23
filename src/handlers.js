@@ -77,6 +77,8 @@ export function gameBoxClickHandler(event) {
             const btn = document.getElementById(coords);
             btn.classList.add("success");
           });
+
+          showPlayAgainButton();
         }, 700);
 
         if (char === "x") {
@@ -86,7 +88,6 @@ export function gameBoxClickHandler(event) {
         }
 
         renderScoresBoxContent();
-        showPlayAgainButton();
       }
     }
   }

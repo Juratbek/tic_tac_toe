@@ -18,6 +18,8 @@ import { key } from "../utils";
 
 const fourthMoveCombinations = new Map();
 
+// x centered
+
 fourthMoveCombinations.set(
   key([
     ["o", " ", " "],
