@@ -7,6 +7,7 @@ import {
   hidePlayAgainButton,
   renderCurrentRound,
   renderGameBoxContent,
+  renderO,
   renderScoresBoxContent,
   renderX,
   showPlayAgainButton,
@@ -46,7 +47,7 @@ export function gameBoxClickHandler(event) {
   if (target.classList.contains("cell")) {
     const clickedButton = target;
 
-    renderX(clickedButton)
+    renderX(clickedButton);
     clickedButton.disabled = true;
 
     const [row, col] = clickedButton.id.split(".");
@@ -60,7 +61,7 @@ export function gameBoxClickHandler(event) {
     let cordsForNextMovement = getCombinationMirrorly(coords, combinations);
 
     const btn = document.getElementById(cordsForNextMovement);
-    btn.innerHTML = "o";
+    renderO(btn);
     btn.disabled = true;
 
     const [rowIndex, colIndex] = btn.id.split(".");
@@ -71,10 +72,12 @@ export function gameBoxClickHandler(event) {
       const { coords: successCoords, char, status } = checkThreeInARow(coords);
 
       if (status === "success") {
-        successCoords.forEach((coords) => {
-          const btn = document.getElementById(coords);
-          btn.style.color = "#05dc05";
-        });
+        setTimeout(() => {
+          successCoords.forEach((coords) => {
+            const btn = document.getElementById(coords);
+            btn.classList.add("success");
+          });
+        }, 700);
 
         if (char === "x") {
           firstPlayerScore++;
@@ -105,7 +108,7 @@ export function startNewRound() {
     );
 
     const btn = document.getElementById(cordsForFirstMovement);
-    btn.innerHTML = "o";
+    renderO(btn);
     btn.disabled = true;
 
     const [rowIndex, colIndex] = btn.id.split(".");
