@@ -47,6 +47,13 @@ export function getCombinationMirrorly(coords, combinationsMap) {
     retryCount++;
   }
 
+  // if combination not found -> create a report and get a random empty position
+  if (!combinations) {
+    gtag("event", "combination_not_found", JSON.stringify(coords1));
+    combinations = getEmptyCoords(coords);
+    retryCount = 0;
+  }
+
   const combinationStr = getCombinationStr(combinations);
   let resCoords = generateCoords(combinationStr);
 
@@ -60,6 +67,20 @@ export function getCombinationMirrorly(coords, combinationsMap) {
   }
 
   return findIndexOf(resCoords);
+}
+
+function getEmptyCoords(coords) {
+  const emptyCoords = [];
+
+  coords.forEach((row, rowIndex) => {
+    row.forEach((cell, colIndex) => {
+      if (cell === " ") {
+        emptyCoords.push(`${rowIndex}.${colIndex}`);
+      }
+    });
+  });
+
+  return emptyCoords;
 }
 
 function getRandomElement(arr) {

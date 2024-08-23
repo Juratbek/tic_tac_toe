@@ -39,6 +39,7 @@ const COORDS_COMBINATIONS = {
   7: seventhMoveCombinations,
   8: eightMoveCombinations,
   9: ninthMoveCombinations,
+  10: new Map(),
 };
 
 export function gameBoxClickHandler(event) {
