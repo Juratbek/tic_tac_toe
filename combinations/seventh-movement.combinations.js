@@ -1,4 +1,4 @@
-import { key } from "./utils";
+import { key } from "../utils";
 
 const seventhMoveCombinations = new Map();
 

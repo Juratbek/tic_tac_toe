@@ -12,15 +12,15 @@ import {
   renderX,
   showPlayAgainButton,
 } from "./renderer";
-import secondMoveCombinations from "./second-movement.combinations";
-import fourthMoveCombinations from "./fourth-movement.combinations";
-import sixthMoveCombinations from "./sixth-movement.combinations";
-import eightMoveCombinations from "./eighth-movement.combinations";
-import firstMoveCombinations from "./first-movement.combinations";
-import thirdMoveCombinations from "./third-movement.combinations";
-import fifthMoveCombinations from "./fifth-movement.combination";
-import seventhMoveCombinations from "./seventh-movement.combinations";
-import ninthMoveCombinations from "./ninth-movement.combinations";
+import secondMoveCombinations from "./combinations/second-movement.combinations";
+import fourthMoveCombinations from "./combinations/fourth-movement.combinations";
+import sixthMoveCombinations from "./combinations/sixth-movement.combinations";
+import eightMoveCombinations from "./combinations/eighth-movement.combinations";
+import firstMoveCombinations from "./combinations/first-movement.combinations";
+import thirdMoveCombinations from "./combinations/third-movement.combinations";
+import fifthMoveCombinations from "./combinations/fifth-movement.combination";
+import seventhMoveCombinations from "./combinations/seventh-movement.combinations";
+import ninthMoveCombinations from "./combinations/ninth-movement.combinations";
 
 let movementNumber = 1;
 export let currentRound = 1;

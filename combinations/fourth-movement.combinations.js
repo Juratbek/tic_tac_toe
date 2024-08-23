@@ -1,4 +1,4 @@
-import { key } from "./utils";
+import { key } from "../utils";
 
 //             rule 1: ['x', ' ', ' '], if there are two marks together and the third is empty, mark the third position
 //                     ['x', 'o', ' '],

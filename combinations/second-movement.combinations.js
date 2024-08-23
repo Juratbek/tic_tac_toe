@@ -1,4 +1,4 @@
-import { key } from "./utils";
+import { key } from "../utils";
 
 //            rule 1: ['x', ' ', ' '], if user marks any position except the center, mark the center
 //                    [' ', 'o', ' '],
