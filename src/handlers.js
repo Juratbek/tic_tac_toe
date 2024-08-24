@@ -88,6 +88,7 @@ export function gameBoxClickHandler(event) {
           secondPlayerScore++;
         }
 
+        gtag("event", "score", `${firstPlayerScore}:${secondPlayerScore}`);
         renderScoresBoxContent();
       }
     }
