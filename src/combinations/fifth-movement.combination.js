@@ -15,6 +15,15 @@ fifthMoveCombinations.set(
 
 fifthMoveCombinations.set(
   key([
+    ["o", "x", "o"],
+    [" ", " ", " "],
+    [" ", "x", " "],
+  ]),
+  "1.1"
+);
+
+fifthMoveCombinations.set(
+  key([
     ["o", "o", " "],
     ["x", " ", "x"],
     [" ", " ", " "],
