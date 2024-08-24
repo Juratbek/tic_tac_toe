@@ -170,6 +170,15 @@ seventhMoveCombinations.set(
 
 seventhMoveCombinations.set(
   key([
+    ["o", " ", "x"],
+    [" ", "x", " "],
+    ["o", "o", "x"],
+  ]),
+  "1.0"
+);
+
+seventhMoveCombinations.set(
+  key([
     ["x", "x", "o"],
     ["o", "x", " "],
     [" ", " ", "o"],

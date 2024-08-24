@@ -27,6 +27,15 @@ sixthMoveCombinations.set(
 
 sixthMoveCombinations.set(
   key([
+    [" ", "x", " "],
+    ["x", "o", "o"],
+    ["x", " ", " "],
+  ]),
+  "0.0"
+);
+
+sixthMoveCombinations.set(
+  key([
     ["x", "x", " "],
     ["x", "o", " "],
     ["o", " ", " "],

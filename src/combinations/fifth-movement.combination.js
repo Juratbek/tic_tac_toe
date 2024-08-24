@@ -2,20 +2,13 @@ import { key } from "../utils";
 
 const fifthMoveCombinations = new Map();
 
-fifthMoveCombinations.set(
-  key([
-    ["o", "o", " "],
-    ["x", " ", " "],
-    ["x", " ", " "],
-  ]),
-  "0.2"
-);
+// empty center
 
 fifthMoveCombinations.set(
   key([
     ["o", "o", " "],
-    ["x", "x", " "],
-    [" ", " ", " "],
+    ["x", " ", " "],
+    ["x", " ", " "],
   ]),
   "0.2"
 );
@@ -50,15 +43,6 @@ fifthMoveCombinations.set(
 fifthMoveCombinations.set(
   key([
     ["o", "o", " "],
-    [" ", "x", " "],
-    ["x", " ", " "],
-  ]),
-  "0.2"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", "o", " "],
     [" ", " ", " "],
     ["x", "x", " "],
   ]),
@@ -86,15 +70,6 @@ fifthMoveCombinations.set(
 fifthMoveCombinations.set(
   key([
     ["o", "o", " "],
-    [" ", "x", " "],
-    [" ", "x", " "],
-  ]),
-  "0.2"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", "o", " "],
     [" ", " ", "x"],
     [" ", "x", " "],
   ]),
@@ -106,24 +81,6 @@ fifthMoveCombinations.set(
     ["o", "o", " "],
     [" ", " ", " "],
     [" ", "x", "x"],
-  ]),
-  "0.2"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", "o", " "],
-    [" ", "x", " "],
-    [" ", " ", "x"],
-  ]),
-  "0.2"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", "o", " "],
-    [" ", "x", "x"],
-    [" ", " ", " "],
   ]),
   "0.2"
 );
@@ -180,6 +137,107 @@ fifthMoveCombinations.set(
     ["x", " ", " "],
   ]),
   "2.2"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", " ", "o"],
+    ["x", " ", "x"],
+    [" ", " ", " "],
+  ]),
+  "0.1"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", " ", "o"],
+    ["x", " ", " "],
+    ["x", " ", " "],
+  ]),
+  "0.1"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", " ", "o"],
+    ["x", " ", " "],
+    [" ", "x", " "],
+  ]),
+  "0.1"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", " ", "o"],
+    ["x", " ", " "],
+    [" ", " ", "x"],
+  ]),
+  "0.1"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", " ", "o"],
+    [" ", " ", " "],
+    ["x", "x", " "],
+  ]),
+  "0.1"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", " ", "o"],
+    [" ", " ", " "],
+    ["x", " ", "x"],
+  ]),
+  "0.1"
+);
+
+// x centered
+
+fifthMoveCombinations.set(
+  key([
+    ["o", "o", " "],
+    [" ", "x", " "],
+    ["x", " ", " "],
+  ]),
+  "0.2"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", "o", " "],
+    ["x", "x", " "],
+    [" ", " ", " "],
+  ]),
+  "0.2"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", "o", " "],
+    [" ", "x", " "],
+    [" ", "x", " "],
+  ]),
+  "0.2"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", "o", " "],
+    [" ", "x", " "],
+    [" ", " ", "x"],
+  ]),
+  "0.2"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["o", "o", " "],
+    [" ", "x", "x"],
+    [" ", " ", " "],
+  ]),
+  "0.2"
 );
 
 fifthMoveCombinations.set(
@@ -257,51 +315,6 @@ fifthMoveCombinations.set(
 fifthMoveCombinations.set(
   key([
     ["o", " ", "o"],
-    ["x", " ", "x"],
-    [" ", " ", " "],
-  ]),
-  "0.1"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", " ", "o"],
-    ["x", " ", " "],
-    ["x", " ", " "],
-  ]),
-  "0.1"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", " ", "o"],
-    ["x", " ", " "],
-    [" ", "x", " "],
-  ]),
-  "0.1"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", " ", "o"],
-    ["x", " ", " "],
-    [" ", " ", "x"],
-  ]),
-  "0.1"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", " ", "o"],
-    [" ", " ", " "],
-    ["x", "x", " "],
-  ]),
-  "0.1"
-);
-
-fifthMoveCombinations.set(
-  key([
-    ["o", " ", "o"],
     [" ", "x", " "],
     ["x", " ", " "],
   ]),
@@ -310,11 +323,20 @@ fifthMoveCombinations.set(
 
 fifthMoveCombinations.set(
   key([
-    ["o", " ", "o"],
-    [" ", " ", " "],
-    ["x", " ", "x"],
+    ["o", " ", " "],
+    [" ", "x", "x"],
+    [" ", " ", "o"],
   ]),
-  "0.1"
+  "1.0"
+);
+
+fifthMoveCombinations.set(
+  key([
+    ["x", " ", "o"],
+    [" ", "x", " "],
+    ["o", " ", " "],
+  ]),
+  "2.2"
 );
 
 export default fifthMoveCombinations;

@@ -2,6 +2,7 @@ import {
   checkThreeInARow,
   generateEmptyCoords,
   getCombinationMirrorly,
+  getEmptyCoords,
 } from "./utils";
 import {
   hidePlayAgainButton,
@@ -53,46 +54,51 @@ export function gameBoxClickHandler(event) {
 
     const [row, col] = clickedButton.id.split(".");
     coords[row][col] = "x";
-
     movementNumber++;
-
-    if (movementNumber > 9) showPlayAgainButton();
 
     const combinations = COORDS_COMBINATIONS[movementNumber];
     let cordsForNextMovement = getCombinationMirrorly(coords, combinations);
 
-    const btn = document.getElementById(cordsForNextMovement);
-    renderO(btn);
-    btn.disabled = true;
+    if (cordsForNextMovement) {
+      const btn = document.getElementById(cordsForNextMovement);
+      renderO(btn);
+      btn.disabled = true;
 
-    const [rowIndex, colIndex] = btn.id.split(".");
-    coords[rowIndex][colIndex] = "o";
-    movementNumber++;
+      const [rowIndex, colIndex] = btn.id.split(".");
+      coords[rowIndex][colIndex] = "o";
+      movementNumber++;
+    }
+
+    if (movementNumber > 9) {
+      showPlayAgainButton();
+    }
 
     if (movementNumber > 4) {
       const { coords: successCoords, char, status } = checkThreeInARow(coords);
 
-      if (status === "success") {
-        setTimeout(() => {
-          successCoords.forEach((coords) => {
-            const btn = document.getElementById(coords);
-            btn.classList.add("success");
-          });
-
-          showPlayAgainButton();
-        }, 700);
-
-        if (char === "x") {
-          firstPlayerScore++;
-        } else if (char === "o") {
-          secondPlayerScore++;
-        }
-
-        gtag("event", "score", `${firstPlayerScore}:${secondPlayerScore}`);
-        renderScoresBoxContent();
-      }
+      if (status === "success") handleSuccess(successCoords, char);
     }
   }
+}
+
+function handleSuccess(coords, char) {
+  setTimeout(() => {
+    coords.forEach((btnId) => {
+      const btn = document.getElementById(btnId);
+      btn.classList.add("success");
+    });
+
+    showPlayAgainButton();
+  }, 700);
+
+  if (char === "x") {
+    firstPlayerScore++;
+  } else if (char === "o") {
+    secondPlayerScore++;
+  }
+
+  gtag("event", "score", `${firstPlayerScore}:${secondPlayerScore}`);
+  renderScoresBoxContent();
 }
 
 export function startNewRound() {

@@ -55,6 +55,8 @@ export function getCombinationMirrorly(coords, combinationsMap) {
   }
 
   const combinationStr = getCombinationStr(combinations);
+  if (!combinationStr) return null;
+
   let resCoords = generateCoords(combinationStr);
 
   while (retryCount > 1) {
@@ -69,7 +71,7 @@ export function getCombinationMirrorly(coords, combinationsMap) {
   return findIndexOf(resCoords);
 }
 
-function getEmptyCoords(coords) {
+export function getEmptyCoords(coords) {
   const emptyCoords = [];
 
   coords.forEach((row, rowIndex) => {
