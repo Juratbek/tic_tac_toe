@@ -1,0 +1,13 @@
+.header {
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  padding: 0 80px;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: 700px) {
+    padding: 0 40px;
+  }
+}

@@ -2,8 +2,7 @@ import { gameBoxClickHandler, startNewRound } from "./src/handlers";
 import { renderGameBoxContent, renderScoresBoxContent } from "./src/renderer";
 import { generateEmptyCoords } from "./src/utils";
 
-import "./config.css";
-import "./index.css";
+import "./src/styles/index.css";
 
 window.onload = () => {
   const gameContainer = document.querySelector("#game-container");

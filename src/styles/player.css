@@ -1,0 +1,60 @@
+:root {
+  --player-height: 859px;
+  --img-offset: -130px;
+
+  @media (min-width: 700px) {
+    --img-offset: -50px;
+  }
+
+  @media (min-width: 1000px) {
+    --img-offset: 0;
+  }
+
+  @media (min-width: 1150px) {
+    --img-offset: 10vw;
+  }
+}
+
+.player .bg {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: -1;
+  transform: rotate(15deg) scale(2.124);
+}
+
+.player .img-container {
+  position: absolute;
+  top: 100px;
+}
+
+.player img {
+  height: var(--player-height);
+  object-fit: cover;
+  width: 400px;
+}
+
+.left-player .img-container {
+  left: var(--img-offset);
+}
+
+.right-player .img-container {
+  right: var(--img-offset);
+}
+
+.left-player .bg {
+  left: -30%;
+  background-color: rgb(2, 8, 69);
+}
+
+.right-player .bg {
+  right: -30%;
+  background-color: rgb(255, 152, 58);
+}
+
+.saski img {
+  margin-top: -22px;
+  margin-left: -30px;
+  height: calc(var(--player-height) + 22px);
+}
