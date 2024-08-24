@@ -56,7 +56,7 @@
   stroke: var(--green-200);
 }
 
-.cell.success .line {
+.cell.success .x-line {
   background-color: var(--green-200);
 }
 
